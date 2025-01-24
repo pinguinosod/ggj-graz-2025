@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://bv5do8x5jenup"]
+[gd_scene load_steps=2 format=3 uid="uid://bv5do8x5jenup"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_i0mm4"]
 
 [node name="MainMenu" type="Node2D"]
+script = ExtResource("1_i0mm4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -15,3 +18,5 @@ layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 text = "Start Game"
+
+[connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]

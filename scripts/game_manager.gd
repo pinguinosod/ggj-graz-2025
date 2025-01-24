@@ -1,11 +1,14 @@
 extends Node
 
+var mainScene: PackedScene = preload("res://scenes/main.tscn")
+var mainMenuScene: PackedScene = preload("res://scenes/main_menu.tscn")
+var gameStarted = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func loadMainScene() -> void:
+	gameStarted = true
+	get_tree().change_scene_to_packed(mainScene)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func loadMainMenu() -> void:
+	gameStarted = false
+	get_tree().change_scene_to_packed(mainMenuScene)
