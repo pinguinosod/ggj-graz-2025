@@ -19,9 +19,9 @@ environment = SubResource("Environment_lmu5s")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.512088, 0.858933, 0, -0.858933, 0.512088, 0, 35.6087, 0)
 
+[node name="Ground" parent="." instance=ExtResource("1_6vqew")]
+
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.84208)
-
-[node name="Ground" parent="." instance=ExtResource("1_6vqew")]
 
 [node name="BaseVehicle" parent="." instance=ExtResource("2_mlf02")]

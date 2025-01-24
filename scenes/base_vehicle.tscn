@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://cf81a8250qtyl"]
+[gd_scene load_steps=3 format=3 uid="uid://cf81a8250qtyl"]
+
+[ext_resource type="Script" path="res://scripts/base_vehicle.gd" id="1_iqovt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_thmtp"]
+size = Vector3(6, 1, 5)
 
 [node name="BaseVehicle" type="Node3D"]
+script = ExtResource("1_iqovt")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_thmtp")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(6, 1, 5)
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.517282, 0)
+collision_layer = 0
+collision_mask = 0
