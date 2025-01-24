@@ -1,27 +1,24 @@
 [gd_scene load_steps=5 format=3 uid="uid://by5bscbhfuupo"]
 
-[ext_resource type="PackedScene" uid="uid://bu6hagkxh7ieq" path="res://scenes/ground.tscn" id="1_6vqew"]
+[ext_resource type="PackedScene" uid="uid://blbtunr4kureu" path="res://scenes/ui.tscn" id="1_28yct"]
 [ext_resource type="PackedScene" uid="uid://cf81a8250qtyl" path="res://scenes/base_vehicle.tscn" id="2_mlf02"]
-[ext_resource type="PackedScene" uid="uid://blbtunr4kureu" path="res://scenes/ui.tscn" id="3_ke1tq"]
+[ext_resource type="PackedScene" uid="uid://bu6hagkxh7ieq" path="res://scenes/ground.tscn" id="2_vyyfv"]
 
-[sub_resource type="Environment" id="Environment_lmu5s"]
+[sub_resource type="Environment" id="Environment_1ni64"]
 
 [node name="main" type="Node3D"]
 
-[node name="UI" parent="." instance=ExtResource("3_ke1tq")]
+[node name="UI" parent="." instance=ExtResource("1_28yct")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1ni64")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.121454, 0.992597, 0, -0.992597, 0.121454, 0, 4.71465, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.4182, 0.908355, 0, -0.908355, 0.4182, 0, 6.00652, 0)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_lmu5s")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.512088, 0.858933, 0, -0.858933, 0.512088, 0, 35.6087, 0)
-
-[node name="Ground" parent="." instance=ExtResource("1_6vqew")]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.84208)
+[node name="Ground" parent="." instance=ExtResource("2_vyyfv")]
 
 [node name="BaseVehicle" parent="." instance=ExtResource("2_mlf02")]
