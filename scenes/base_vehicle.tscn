@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/base_vehicle.gd" id="1_iqovt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_thmtp"]
-size = Vector3(5, 1, 5)
+size = Vector3(6, 1, 6)
 
 [node name="BaseVehicle" type="Node3D"]
 script = ExtResource("1_iqovt")
@@ -17,6 +17,7 @@ shape = SubResource("BoxShape3D_thmtp")
 
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.534729, 0)
+cell_size = Vector3(1, 1, 1)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-size = Vector3(5, 1, 5)
+size = Vector3(6, 1, 6)
