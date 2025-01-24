@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://by5bscbhfuupo"]
+[gd_scene load_steps=2 format=3 uid="uid://by5bscbhfuupo"]
+
+[sub_resource type="Environment" id="Environment_lmu5s"]
 
 [node name="main" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.4182, 0.908355, 0, -0.908355, 0.4182, 0, 6.00652, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lmu5s")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
