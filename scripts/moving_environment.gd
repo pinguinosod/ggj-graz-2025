@@ -41,12 +41,13 @@ func spawnCacti():
 
 func spawnHumans():
 	for i in 3 * GameManager.currentVeinLevel:
-		spawnInstanceOf(humanPrefab, 2+ (2 * GameManager.vehicleUpgradeLevel), 6+ (2 * GameManager.vehicleUpgradeLevel), 2 + (2 * GameManager.vehicleUpgradeLevel), 6 + (2 * GameManager.vehicleUpgradeLevel))
+		spawnInstanceOf(humanPrefab, 8 + (2 * GameManager.vehicleUpgradeLevel), 24+ (2 * GameManager.vehicleUpgradeLevel), 2 + (2 * GameManager.vehicleUpgradeLevel), 6 + (2 * GameManager.vehicleUpgradeLevel))
 
 func spawnInstanceOf(prefab: PackedScene, minX: float = 15, maxX :float = 80, minZ: float = 8, maxZ :float = 64):
 	var instance: Node3D = prefab.instantiate()
 	var positionZ = randf_range(minZ, maxZ)
-	instance.global_position = Vector3(randf_range(15, 80), 0, positionZ) - position
+	var positionX = randf_range(minX, maxX)
+	instance.global_position = Vector3(positionX, 0, positionZ) - position
 	if randi_range(0,100) > 50:
 		print("flip", positionZ)
 		instance.position.z = -1 * positionZ

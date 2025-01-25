@@ -5,6 +5,9 @@ func _ready() -> void:
 	GameManager.minningStarted.connect(_handleMinningStarted)
 	GameManager.veinDeepleted.connect(_handleVeinDeepleted)
 
+func _process(delta: float) -> void:
+	$StaticBody3D/CollisionShape3D.shape.radius = $CSGSphere3D.radius
+
 func _handleMinningStarted() -> void:
 	appear()
 

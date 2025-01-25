@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://djlyhikp5ek71"]
+
+[ext_resource type="Script" path="res://scripts/enemy_projectile.gd" id="1_v8idi"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nnlnu"]
+radius = 0.114632
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_magkp"]
+albedo_color = Color(0.36, 0.29238, 0.2772, 1)
+
+[node name="EnemyProjectile" type="RigidBody3D"]
+collision_layer = 0
+collision_mask = 30
+script = ExtResource("1_v8idi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_nnlnu")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+material_override = SubResource("StandardMaterial3D_magkp")
+radius = 0.15
+radial_segments = 6
+rings = 3
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
