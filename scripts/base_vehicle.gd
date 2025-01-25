@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var gridMap: GridMap = $GridMap
 var buildings: Array[Vector3i]
+var isMinning = true
 
 func _ready() -> void:
 	$CSGBox3DVehiclePlatform.size.x = 2+ 2*GameManager.vehicleUpgradeLevel
@@ -16,6 +17,7 @@ func _ready() -> void:
 	$Treads3.position.z = -1 + (-1 * GameManager.vehicleUpgradeLevel)
 	$Treads4.position.z = 1.5 + (1* GameManager.vehicleUpgradeLevel)
 	$Treads5.position.z = 1.5 + (1* GameManager.vehicleUpgradeLevel)
+
 func _process(delta: float) -> void:
 	pass
 
@@ -56,3 +58,8 @@ func get_cursor_world_position() -> Vector3:
 	var hit_position: Vector3 = ray_result.get("position", Vector3.ZERO)   
 	
 	return hit_position
+
+
+func _on_minning_timer_timeout() -> void:
+	if isMinning:
+		GameManager.addResources(1)
