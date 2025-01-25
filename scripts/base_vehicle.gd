@@ -1,6 +1,5 @@
 extends Node3D
 
-@export var TURRET_COST: int = 10
 @onready var gridMap: GridMap = $GridMap
 var buildings: Array[Vector3i]
 var isMinning = true
@@ -14,14 +13,19 @@ func _ready() -> void:
 	$Treads4.position.x = 0.5 + (1* GameManager.vehicleUpgradeLevel)
 	$Treads5.position.x = -0.5 + (-1 * GameManager.vehicleUpgradeLevel)
 
-	$Treads2.position.z = -1 + (-1 * GameManager.vehicleUpgradeLevel)
-	$Treads3.position.z = -1 + (-1 * GameManager.vehicleUpgradeLevel)
-	$Treads4.position.z = 1.5 + (1* GameManager.vehicleUpgradeLevel)
-	$Treads5.position.z = 1.5 + (1* GameManager.vehicleUpgradeLevel)
+	$Treads2.position.z = -1.25 + (-1 * GameManager.vehicleUpgradeLevel)
+	$Treads3.position.z = -1.25 + (-1 * GameManager.vehicleUpgradeLevel)
+	$Treads4.position.z = 1.25 + (1* GameManager.vehicleUpgradeLevel)
+	$Treads5.position.z = 1.25 + (1* GameManager.vehicleUpgradeLevel)
+	
+	GameManager.veinDeepleted.connect(_handleVeinDeepleted)
+	GameManager.minningStarted.connect(_handleMinningStarted)
 
-func _process(delta: float) -> void:
-	pass
+func _handleVeinDeepleted():
+	isMinning = false
 
+func _handleMinningStarted():
+	isMinning = true
 
 func _input(event):
 	var usedCells:Array[Vector3i] = gridMap.get_used_cells()
@@ -39,7 +43,7 @@ func _input(event):
 
 func handleClickOnCell(cellPos: Vector3i)-> void:
 	if gridMap.get_cell_item(cellPos) == -1:
-		if GameManager.spendResources(TURRET_COST):
+		if GameManager.spendResources(GameManager.TURRET_COST):
 			gridMap.set_cell_item(cellPos, 1) # turret base is on first floor
 			gridMap.set_cell_item(Vector3(cellPos.x, 1, cellPos.z), 2) # turret head is on floor second floor
 
@@ -64,4 +68,4 @@ func get_cursor_world_position() -> Vector3:
 
 func _on_minning_timer_timeout() -> void:
 	if isMinning:
-		GameManager.addResources(1)
+		GameManager.doMine()

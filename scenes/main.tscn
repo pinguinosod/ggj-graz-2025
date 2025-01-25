@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/camera_3d.gd" id="2_eprbc"]
 [ext_resource type="PackedScene" uid="uid://cf81a8250qtyl" path="res://scenes/base_vehicle.tscn" id="2_mlf02"]
 [ext_resource type="PackedScene" uid="uid://bu6hagkxh7ieq" path="res://scenes/ground.tscn" id="2_vyyfv"]
-[ext_resource type="PackedScene" uid="uid://dtsttqykk35gt" path="res://models/human.tscn" id="4_1sqbr"]
+[ext_resource type="PackedScene" uid="uid://cwypqdqak0jyu" path="res://scenes/moving_environment.tscn" id="5_8mv61"]
 
 [sub_resource type="Environment" id="Environment_1ni64"]
 
@@ -30,5 +30,4 @@ offset = Vector3(0, 12, 3)
 [node name="BaseVehicle" parent="." instance=ExtResource("2_mlf02")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.766955, 0)
 
-[node name="Human2" parent="." instance=ExtResource("4_1sqbr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.06906, 0, -0.710653)
+[node name="MovingEnvironment" parent="." instance=ExtResource("5_8mv61")]

@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=4 uid="uid://fo6vdg5e37a"]
+
+[ext_resource type="Script" path="res://scripts/treads.gd" id="1_2484w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g5yho"]
+resource_name = "Treads"
+cull_mode = 2
+albedo_color = Color(0.546813, 0.546813, 0.546813, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_f0wpv"]
+_surfaces = [{
+"aabb": AABB(-0.0885639, 0.316535, -5.66148, 5.6502, 5.06688, 11.1598),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAHAAMAAgAGAAcABgAFAAcABgAEAAUABAABAAUABAAAAAEAAgAEAAYAAgAAAAQABwABAAMABwAFAAEA"),
+"name": "Treads",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//ydsAAAAAAAAAAAAAAAD//zUkAAD//wAA//8AAP/////J2wAA//8AAAAAAAD/////NSQAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_landw"]
+resource_name = "Treads_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.0885639, 0.316535, -5.66148, 5.6502, 5.06688, 11.1598),
+"attribute_data": PackedByteArray("/18AAP8f/z//X////58AAP/f/z//n////1//v/8f/3//X/+//5//v//f/3//n/+//1//P/9f/z//X/8//5//P/+f/z//n/8//1//f/9f/3//X/9//5//f/+f/3//n/9/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AgALAAUAAgAIAAsABgAVAAkABgASABUAFAARABcAFAAOABEADAADAA8ADAAAAAMABwANABMABwABAA0AFgAEAAoAFgAQAAQA"),
+"material": SubResource("StandardMaterial3D_g5yho"),
+"name": "Treads",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//68AAAAAA////vwAAAAD//w7XAAD//8nb68AAAP//ydv//wAA///J28HcAAAAAAAAUPcAAAAAAAD/vwAAAAAAAJ/OAAD//zUkUPcAAP//NST//wAA//81JOzR//8AAP//68D//wAA////v///AAD//5/O/////8nb68D/////ydv////////J2+zR//8AAAAAUPf//wAAAAD/v///AAAAAA7X/////zUkUPf/////NST///////81JMHcEPHuDgAA/39e10/UEPHuDv9//7+R3TbReLt4uwAA/382zOPZeLt4u/9//7/80IDXEPHuDgAA/3/IMxsmEPHuDv9//78CL34oeLt4uwAA/3+gKK8reLt4u/9//79tIsgu")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_f0wpv")
+
+[node name="Treads" type="Node3D"]
+script = ExtResource("1_2484w")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, 0.26)
+
+[node name="Treads" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1.78814e-07, 0, 1, 0, 1, 0, -1, 0, 1.78814e-07, 0, 0, 0)
+mesh = SubResource("ArrayMesh_landw")
+skeleton = NodePath("")
