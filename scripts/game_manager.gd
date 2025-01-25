@@ -4,7 +4,16 @@ var mainScene: PackedScene = preload("res://scenes/main.tscn")
 var mainMenuScene: PackedScene = preload("res://scenes/main_menu.tscn")
 var gameStarted = false
 var vehicleUpgradeLevel: int = 1
+var resources: int = 10
 
+func addResources(howMuch: int) -> void:
+	resources += howMuch
+
+func spendResources(howMuch: int) -> bool:
+	if howMuch <= resources:
+		resources -= howMuch
+		return true
+	return false
 
 func loadMainScene() -> void:
 	gameStarted = true

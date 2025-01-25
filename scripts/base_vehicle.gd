@@ -1,7 +1,9 @@
 extends Node3D
 
+@export var TURRET_COST: int = 10
 @onready var gridMap: GridMap = $GridMap
 var buildings: Array[Vector3i]
+var isMinning = true
 
 func _ready() -> void:
 	$CSGBox3DVehiclePlatform.size.x = 2+ 2*GameManager.vehicleUpgradeLevel
@@ -16,6 +18,7 @@ func _ready() -> void:
 	$Treads3.position.z = -1 + (-1 * GameManager.vehicleUpgradeLevel)
 	$Treads4.position.z = 1.5 + (1* GameManager.vehicleUpgradeLevel)
 	$Treads5.position.z = 1.5 + (1* GameManager.vehicleUpgradeLevel)
+
 func _process(delta: float) -> void:
 	pass
 
@@ -36,8 +39,9 @@ func _input(event):
 
 func handleClickOnCell(cellPos: Vector3i)-> void:
 	if gridMap.get_cell_item(cellPos) == -1:
-		gridMap.set_cell_item(cellPos, 1) # turret base is on first floor
-		gridMap.set_cell_item(Vector3(cellPos.x, 1, cellPos.z), 2) # turret head is on floor second floor
+		if GameManager.spendResources(TURRET_COST):
+			gridMap.set_cell_item(cellPos, 1) # turret base is on first floor
+			gridMap.set_cell_item(Vector3(cellPos.x, 1, cellPos.z), 2) # turret head is on floor second floor
 
 func get_cursor_world_position() -> Vector3:
 	const RAY_DISTANCE = 64.0
@@ -56,3 +60,8 @@ func get_cursor_world_position() -> Vector3:
 	var hit_position: Vector3 = ray_result.get("position", Vector3.ZERO)   
 	
 	return hit_position
+
+
+func _on_minning_timer_timeout() -> void:
+	if isMinning:
+		GameManager.addResources(1)
