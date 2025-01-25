@@ -9,5 +9,5 @@ albedo_texture = SubResource("CompressedTexture2D_v6h3w")
 
 [resource]
 material = SubResource("StandardMaterial3D_4p15n")
-size = Vector2(1, 1)
+size = Vector2(0.5, 0.5)
 center_offset = Vector3(0, -0.24, 0)

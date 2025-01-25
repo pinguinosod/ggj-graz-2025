@@ -3,7 +3,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgaue"]
 resource_name = "TurretBase"
 cull_mode = 2
-albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+albedo_color = Color(0.603922, 0.647059, 0.678431, 1)
 roughness = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e83gu"]

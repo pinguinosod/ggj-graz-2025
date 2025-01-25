@@ -1,8 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkfxwmwj3g1mi"]
+[gd_scene load_steps=4 format=3 uid="uid://dkfxwmwj3g1mi"]
 
 [ext_resource type="PackedScene" uid="uid://bsmynsr4lqhfs" path="res://models/ShieldGenerator.glb" id="1_hi0rr"]
+[ext_resource type="Script" path="res://scripts/shield_generator.gd" id="1_xot65"]
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_deqrs"]
+height = 1.36226
+radius = 0.187111
+
+[node name="ShieldGenerator" type="Node3D"]
+script = ExtResource("1_xot65")
 
 [node name="ShieldGenerator2" parent="." instance=ExtResource("1_hi0rr")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.773231, -2.14202, 0.411702)
+
+[node name="Area3DHitbox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3DHitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.590862, 0)
+shape = SubResource("CylinderShape3D_deqrs")
+
+[connection signal="body_entered" from="Area3DHitbox" to="." method="_on_area_3d_hitbox_body_entered"]

@@ -9,6 +9,7 @@ var vehicleUpgradeLevel: int = 1
 var resources: int = 100
 var currentVeinLevel: int = 1
 var veinResources: int = 50
+var shieldGeneratorHealth: int = 100
 
 signal veinDeepleted
 signal movementStarted
@@ -34,6 +35,10 @@ func startMinning() -> void:
 	currentVeinLevel += 1
 	veinResources = currentVeinLevel * 20 # 200
 	minningStarted.emit()
+
+func damageShieldGenerator(dmg: int) -> void:
+	shieldGeneratorHealth -= dmg
+	# todo: trigger game over
 
 func loadMainScene() -> void:
 	gameStarted = true
