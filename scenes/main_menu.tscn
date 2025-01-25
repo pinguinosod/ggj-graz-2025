@@ -1,22 +1,126 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv5do8x5jenup"]
+[gd_scene load_steps=11 format=3 uid="uid://bv5do8x5jenup"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_i0mm4"]
+[ext_resource type="Texture2D" uid="uid://cp28qljdgy8f6" path="res://ui_images/beast_start.png" id="2_12c4c"]
+[ext_resource type="StyleBox" uid="uid://c3b38jh2pmijl" path="res://resources/start_button_texture.tres" id="3_uekir"]
+[ext_resource type="StyleBox" uid="uid://dk1mvjucd8s6c" path="res://resources/start_button__hover_texture.tres" id="4_l312g"]
+[ext_resource type="Texture2D" uid="uid://x1w7r805n67i" path="res://ui_images/Story.png" id="5_4qa65"]
+[ext_resource type="Texture2D" uid="uid://dfgvlvgpjmxb0" path="res://ui_images/beast_login.png" id="5_fpfsd"]
+[ext_resource type="FontFile" uid="uid://74u7kse01sf6" path="res://ui_fonts/mutant-night.ttf" id="7_j7w34"]
+
+[sub_resource type="Animation" id="Animation_uxcbj"]
+resource_name = "blinking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_55t6j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ksnix"]
+_data = {
+"RESET": SubResource("Animation_55t6j"),
+"blinking": SubResource("Animation_uxcbj")
+}
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_i0mm4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="StartSlide" type="TextureRect" parent="CanvasLayer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_12c4c")
+
+[node name="Control" type="Control" parent="CanvasLayer/StartSlide"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Button" type="Button" parent="CanvasLayer/Control"]
+[node name="Button" type="Button" parent="CanvasLayer/StartSlide/Control"]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "Start Game"
+offset_left = 724.0
+offset_top = 885.0
+offset_right = 1063.0
+offset_bottom = 988.0
+scale = Vector2(1.5, 1.5)
+theme_override_styles/focus = ExtResource("3_uekir")
+theme_override_styles/disabled_mirrored = ExtResource("3_uekir")
+theme_override_styles/disabled = ExtResource("3_uekir")
+theme_override_styles/hover_pressed_mirrored = ExtResource("4_l312g")
+theme_override_styles/hover_pressed = ExtResource("4_l312g")
+theme_override_styles/hover_mirrored = ExtResource("4_l312g")
+theme_override_styles/hover = ExtResource("4_l312g")
+theme_override_styles/pressed_mirrored = ExtResource("4_l312g")
+theme_override_styles/pressed = ExtResource("4_l312g")
+theme_override_styles/normal_mirrored = ExtResource("3_uekir")
+theme_override_styles/normal = ExtResource("3_uekir")
 
-[connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]
+[node name="Slide1" type="TextureButton" parent="CanvasLayer"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("5_4qa65")
+texture_pressed = ExtResource("5_4qa65")
+texture_hover = ExtResource("5_4qa65")
+texture_disabled = ExtResource("5_4qa65")
+texture_focused = ExtResource("5_4qa65")
+
+[node name="Slide2" type="TextureButton" parent="CanvasLayer"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("5_fpfsd")
+texture_pressed = ExtResource("5_fpfsd")
+texture_hover = ExtResource("5_fpfsd")
+texture_disabled = ExtResource("5_fpfsd")
+texture_focused = ExtResource("5_fpfsd")
+
+[node name="Control" type="Control" parent="CanvasLayer/Slide2"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="CanvasLayer/Slide2/Control"]
+layout_mode = 0
+offset_left = 626.0
+offset_top = 944.0
+offset_right = 1251.0
+offset_bottom = 1004.0
+theme_override_fonts/font = ExtResource("7_j7w34")
+theme_override_font_sizes/font_size = 45
+text = "START MINING"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Slide2/Control/Button"]
+libraries = {
+"": SubResource("AnimationLibrary_ksnix")
+}
+autoplay = "blinking"
+
+[connection signal="pressed" from="CanvasLayer/StartSlide/Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Slide1" to="." method="_on_slide_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Slide2/Control/Button" to="." method="_on_button_Slide2_pressed"]
