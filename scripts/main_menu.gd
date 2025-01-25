@@ -8,7 +8,6 @@ func _hide_all() -> void:
 func _on_button_pressed() -> void:
 	_hide_all()
 	$CanvasLayer/Slide1.visible = true
-	
 
 
 func _on_slide_1_pressed() -> void:

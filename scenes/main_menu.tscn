@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_i0mm4"]
 [ext_resource type="Texture2D" uid="uid://cp28qljdgy8f6" path="res://ui_images/beast_start.png" id="2_12c4c"]
-[ext_resource type="StyleBox" uid="uid://c3b38jh2pmijl" path="res://resources/start_button_texture.tres" id="3_uekir"]
-[ext_resource type="StyleBox" uid="uid://dk1mvjucd8s6c" path="res://resources/start_button__hover_texture.tres" id="4_l312g"]
-[ext_resource type="Texture2D" uid="uid://x1w7r805n67i" path="res://ui_images/Story.png" id="5_4qa65"]
-[ext_resource type="Texture2D" uid="uid://dfgvlvgpjmxb0" path="res://ui_images/beast_login.png" id="5_fpfsd"]
-[ext_resource type="FontFile" uid="uid://74u7kse01sf6" path="res://ui_fonts/mutant-night.ttf" id="7_j7w34"]
+[ext_resource type="StyleBox" uid="uid://ddxhnix7ysbug" path="res://resources/start_button.tres" id="3_03geb"]
+[ext_resource type="StyleBox" uid="uid://cx0mt8cjx1glv" path="res://resources/start_button_hover.tres" id="4_e103q"]
+[ext_resource type="Texture2D" uid="uid://ja4jrt2s6vx4" path="res://ui_images/Story.png" id="5_oa1bk"]
+[ext_resource type="Texture2D" uid="uid://dfgvlvgpjmxb0" path="res://ui_images/beast_login.png" id="6_t5i3l"]
+[ext_resource type="FontFile" uid="uid://74u7kse01sf6" path="res://ui_fonts/mutant-night.ttf" id="7_sw0p3"]
 
-[sub_resource type="Animation" id="Animation_uxcbj"]
+[sub_resource type="Animation" id="Animation_rncua"]
 resource_name = "blinking"
 loop_mode = 1
 tracks/0/type = "value"
@@ -18,13 +18,13 @@ tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.5, 1),
+"times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_55t6j"]
+[sub_resource type="Animation" id="Animation_15m8l"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -39,10 +39,10 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ksnix"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6vtxa"]
 _data = {
-"RESET": SubResource("Animation_55t6j"),
-"blinking": SubResource("Animation_uxcbj")
+"RESET": SubResource("Animation_15m8l"),
+"blinking": SubResource("Animation_rncua")
 }
 
 [node name="MainMenu" type="Node2D"]
@@ -68,59 +68,55 @@ offset_top = 885.0
 offset_right = 1063.0
 offset_bottom = 988.0
 scale = Vector2(1.5, 1.5)
-theme_override_styles/focus = ExtResource("3_uekir")
-theme_override_styles/disabled_mirrored = ExtResource("3_uekir")
-theme_override_styles/disabled = ExtResource("3_uekir")
-theme_override_styles/hover_pressed_mirrored = ExtResource("4_l312g")
-theme_override_styles/hover_pressed = ExtResource("4_l312g")
-theme_override_styles/hover_mirrored = ExtResource("4_l312g")
-theme_override_styles/hover = ExtResource("4_l312g")
-theme_override_styles/pressed_mirrored = ExtResource("4_l312g")
-theme_override_styles/pressed = ExtResource("4_l312g")
-theme_override_styles/normal_mirrored = ExtResource("3_uekir")
-theme_override_styles/normal = ExtResource("3_uekir")
+theme_override_styles/focus = ExtResource("3_03geb")
+theme_override_styles/disabled_mirrored = ExtResource("3_03geb")
+theme_override_styles/disabled = ExtResource("3_03geb")
+theme_override_styles/hover_pressed_mirrored = ExtResource("4_e103q")
+theme_override_styles/hover_pressed = ExtResource("4_e103q")
+theme_override_styles/hover_mirrored = ExtResource("4_e103q")
+theme_override_styles/hover = ExtResource("4_e103q")
+theme_override_styles/pressed_mirrored = ExtResource("4_e103q")
+theme_override_styles/pressed = ExtResource("4_e103q")
+theme_override_styles/normal_mirrored = ExtResource("3_03geb")
+theme_override_styles/normal = ExtResource("3_03geb")
 
 [node name="Slide1" type="TextureButton" parent="CanvasLayer"]
 visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-texture_normal = ExtResource("5_4qa65")
-texture_pressed = ExtResource("5_4qa65")
-texture_hover = ExtResource("5_4qa65")
-texture_disabled = ExtResource("5_4qa65")
-texture_focused = ExtResource("5_4qa65")
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture_normal = ExtResource("5_oa1bk")
+texture_pressed = ExtResource("5_oa1bk")
+texture_hover = ExtResource("5_oa1bk")
+texture_disabled = ExtResource("5_oa1bk")
+texture_focused = ExtResource("5_oa1bk")
 
 [node name="Slide2" type="TextureButton" parent="CanvasLayer"]
 visible = false
 offset_right = 40.0
 offset_bottom = 40.0
-texture_normal = ExtResource("5_fpfsd")
-texture_pressed = ExtResource("5_fpfsd")
-texture_hover = ExtResource("5_fpfsd")
-texture_disabled = ExtResource("5_fpfsd")
-texture_focused = ExtResource("5_fpfsd")
+texture_normal = ExtResource("6_t5i3l")
+texture_pressed = ExtResource("6_t5i3l")
+texture_hover = ExtResource("6_t5i3l")
+texture_disabled = ExtResource("6_t5i3l")
+texture_focused = ExtResource("6_t5i3l")
 
-[node name="Control" type="Control" parent="CanvasLayer/Slide2"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Button" type="Button" parent="CanvasLayer/Slide2/Control"]
+[node name="Button" type="Button" parent="CanvasLayer/Slide2"]
 layout_mode = 0
-offset_left = 626.0
-offset_top = 944.0
-offset_right = 1251.0
-offset_bottom = 1004.0
-theme_override_fonts/font = ExtResource("7_j7w34")
-theme_override_font_sizes/font_size = 45
+offset_left = 470.0
+offset_top = 938.0
+offset_right = 1369.0
+offset_bottom = 1021.0
+theme_override_fonts/font = ExtResource("7_sw0p3")
+theme_override_font_sizes/font_size = 65
 text = "START MINING"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Slide2/Control/Button"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Slide2/Button"]
 libraries = {
-"": SubResource("AnimationLibrary_ksnix")
+"": SubResource("AnimationLibrary_6vtxa")
 }
 autoplay = "blinking"
 
 [connection signal="pressed" from="CanvasLayer/StartSlide/Control/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Slide1" to="." method="_on_slide_1_pressed"]
-[connection signal="pressed" from="CanvasLayer/Slide2/Control/Button" to="." method="_on_button_Slide2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Slide2" to="." method="_on_button_Slide2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Slide2/Button" to="." method="_on_button_Slide2_pressed"]
