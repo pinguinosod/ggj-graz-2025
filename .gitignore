@@ -3,4 +3,5 @@
 /android/
 /export/
 .vscode/
+.idea
 models/*.blend1
