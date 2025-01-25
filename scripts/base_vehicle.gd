@@ -4,6 +4,8 @@ extends Node3D
 var buildings: Array[Vector3i]
 var isMinning = true
 
+@export var turretHeadPrefab: PackedScene
+
 func _ready() -> void:
 	$CSGBox3DVehiclePlatform.size.x = 2+ 2*GameManager.vehicleUpgradeLevel
 	$CSGBox3DVehiclePlatform.size.z = 2+ 2*GameManager.vehicleUpgradeLevel
@@ -45,7 +47,11 @@ func handleClickOnCell(cellPos: Vector3i)-> void:
 	if gridMap.get_cell_item(cellPos) == -1:
 		if GameManager.spendResources(GameManager.TURRET_COST):
 			gridMap.set_cell_item(cellPos, 1) # turret base is on first floor
-			gridMap.set_cell_item(Vector3(cellPos.x, 1, cellPos.z), 2) # turret head is on floor second floor
+			#gridMap.set_cell_item(Vector3(cellPos.x, 1, cellPos.z), 2) # turret head is on floor second floor
+			var turretHead = turretHeadPrefab.instantiate()
+			turretHead.position = gridMap.map_to_local(cellPos)
+			turretHead.position.y = 0.85
+			add_child(turretHead)
 
 func get_cursor_world_position() -> Vector3:
 	const RAY_DISTANCE = 64.0

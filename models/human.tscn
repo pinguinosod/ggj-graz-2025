@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://dtsttqykk35gt"]
+[gd_scene load_steps=30 format=4 uid="uid://dtsttqykk35gt"]
 
 [ext_resource type="Script" path="res://scripts/human.gd" id="1_cl0tt"]
 [ext_resource type="PackedScene" uid="uid://djlyhikp5ek71" path="res://scenes/enemyProjectile.tscn" id="2_4ktno"]
@@ -204,125 +204,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_g1lwu")
 
-[sub_resource type="Animation" id="Animation_tsjqv"]
-resource_name = "idle"
-length = 4.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node3D/ArmRight:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 2, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.785398), Vector3(0, 0, 0), Vector3(0, 0, -0.785398), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node3D/ArmLeft:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 2, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, -0.785398), Vector3(0, 0, 0), Vector3(0, 0, -0.785398), Vector3(0, 0, 0), Vector3(0, 0, -0.785398)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node3D/ArmRight:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-35.1049, 3.00675, -9.82475)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Node3D/ArmLeft:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-35.1049, 3.00675, -7.20537)]
-}
-
-[sub_resource type="Animation" id="Animation_iq6rb"]
-resource_name = "attacking"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Node3D/ArmLeft:rotation:z")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [1.0, -1.0, -1.0, 1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Node3D/ArmLeft:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-36, 4.5, -7.205), Vector3(-35, 5, -7.205), Vector3(-34, 4.5, -7.205), Vector3(-34, 4.5, -7.205), Vector3(-36, 4.5, -7.205)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Node3D/ArmRight:rotation:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [1.0, -1.0, -1.0, 1.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Node3D/ArmRight:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-36, 4.5, -9.825), Vector3(-35, 5, -9.825), Vector3(-34, 4.5, -9.825), Vector3(-34, 4.5, -9.825), Vector3(-36, 4.5, -9.825)]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"spawnProjectile"
-}]
-}
-
 [sub_resource type="Animation" id="Animation_ybanh"]
 length = 0.001
 tracks/0/type = "value"
@@ -398,6 +279,125 @@ tracks/5/keys = {
 "values": [Vector3(0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_iq6rb"]
+resource_name = "attacking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/ArmLeft:rotation:z")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, -1.0, -1.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D/ArmLeft:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-36, 4.5, -7.205), Vector3(-35, 5, -7.205), Vector3(-34, 4.5, -7.205), Vector3(-34, 4.5, -7.205), Vector3(-36, 4.5, -7.205)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node3D/ArmRight:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, -1.0, -1.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node3D/ArmRight:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-36, 4.5, -9.825), Vector3(-35, 5, -9.825), Vector3(-34, 4.5, -9.825), Vector3(-34, 4.5, -9.825), Vector3(-36, 4.5, -9.825)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawnProjectile"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_tsjqv"]
+resource_name = "idle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/ArmRight:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.785398), Vector3(0, 0, 0), Vector3(0, 0, -0.785398), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D/ArmLeft:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.785398), Vector3(0, 0, 0), Vector3(0, 0, -0.785398), Vector3(0, 0, 0), Vector3(0, 0, -0.785398)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node3D/ArmRight:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-35.1049, 3.00675, -9.82475)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Node3D/ArmLeft:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-35.1049, 3.00675, -7.20537)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4w2vn"]
 _data = {
 "RESET": SubResource("Animation_ybanh"),
@@ -408,6 +408,10 @@ _data = {
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_5rxh1"]
 height = 0.422169
 radius = 8.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7qsrx"]
+radius = 0.170251
+height = 0.771745
 
 [node name="Human" type="Node3D"]
 script = ExtResource("1_cl0tt")
@@ -465,6 +469,14 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3DAttackRange"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.295747, 0)
 shape = SubResource("CylinderShape3D_5rxh1")
+
+[node name="Area3DHitbox" type="Area3D" parent="."]
+collision_layer = 64
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3DHitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.296475, 0)
+shape = SubResource("CapsuleShape3D_7qsrx")
 
 [connection signal="body_entered" from="Area3DAttackRange" to="." method="_on_area_3d_attack_range_body_entered"]
 [connection signal="body_exited" from="Area3DAttackRange" to="." method="_on_area_3d_attack_range_body_exited"]

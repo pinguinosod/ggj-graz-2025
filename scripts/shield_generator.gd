@@ -14,4 +14,4 @@ func _process(delta: float) -> void:
 func _on_area_3d_hitbox_body_entered(body: Node3D) -> void:
 	if body.has_method("doExplode"):
 		body.doExplode()
-		GameManager.damageShieldGenerator(1)
+		GameManager.damageShieldGenerator(5)

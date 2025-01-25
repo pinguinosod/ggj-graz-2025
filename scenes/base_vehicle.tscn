@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cf81a8250qtyl"]
+[gd_scene load_steps=9 format=3 uid="uid://cf81a8250qtyl"]
 
 [ext_resource type="Script" path="res://scripts/base_vehicle.gd" id="1_iqovt"]
 [ext_resource type="MeshLibrary" uid="uid://88lwxfrpuv3x" path="res://resources/MeshLibrary.tres" id="2_7va1y"]
+[ext_resource type="PackedScene" uid="uid://dykvmhwm2b5ev" path="res://scenes/turret_head_smart.tscn" id="2_wkv4s"]
 [ext_resource type="PackedScene" uid="uid://dkfxwmwj3g1mi" path="res://models/shieldGenerator.tscn" id="4_xrtgn"]
 [ext_resource type="PackedScene" uid="uid://cgea1wn6382jc" path="res://scenes/bubbleShield.tscn" id="5_0m7hs"]
 [ext_resource type="PackedScene" uid="uid://fo6vdg5e37a" path="res://models/treads.tscn" id="5_uno4h"]
@@ -15,6 +16,7 @@ metallic = 0.91
 
 [node name="BaseVehicle" type="Node3D"]
 script = ExtResource("1_iqovt")
+turretHeadPrefab = ExtResource("2_wkv4s")
 
 [node name="StaticBody3DClickHandler" type="StaticBody3D" parent="."]
 collision_layer = 2
