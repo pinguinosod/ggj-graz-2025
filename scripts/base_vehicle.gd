@@ -1,5 +1,6 @@
 extends Node3D
 
+@export var TURRET_COST: int = 10
 @onready var gridMap: GridMap = $GridMap
 var buildings: Array[Vector3i]
 var isMinning = true
@@ -38,8 +39,9 @@ func _input(event):
 
 func handleClickOnCell(cellPos: Vector3i)-> void:
 	if gridMap.get_cell_item(cellPos) == -1:
-		gridMap.set_cell_item(cellPos, 1) # turret base is on first floor
-		gridMap.set_cell_item(Vector3(cellPos.x, 1, cellPos.z), 2) # turret head is on floor second floor
+		if GameManager.spendResources(TURRET_COST):
+			gridMap.set_cell_item(cellPos, 1) # turret base is on first floor
+			gridMap.set_cell_item(Vector3(cellPos.x, 1, cellPos.z), 2) # turret head is on floor second floor
 
 func get_cursor_world_position() -> Vector3:
 	const RAY_DISTANCE = 64.0
