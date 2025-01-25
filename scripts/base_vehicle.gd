@@ -1,20 +1,37 @@
 extends Node3D
 
+
 @onready var gridMap: GridMap = $GridMap
 
 func _ready() -> void:
-	pass
+	$CSGBox3DVehiclePlatform.size.x = 2+ 2*GameManager.vehicleUpgradeLevel
+	$CSGBox3DVehiclePlatform.size.z = 2+ 2*GameManager.vehicleUpgradeLevel
+	$StaticBody3DClickHandler/CollisionShape3D.shape.size = $CSGBox3DVehiclePlatform.size
+	$Treads2.position.x = 0.5 + (1* GameManager.vehicleUpgradeLevel)
+	$Treads3.position.x = -0.5 + (-1 * GameManager.vehicleUpgradeLevel)
+	$Treads4.position.x = 0.5 + (1* GameManager.vehicleUpgradeLevel)
+	$Treads5.position.x = -0.5 + (-1 * GameManager.vehicleUpgradeLevel)
 
+	$Treads2.position.z = -1 + (-1 * GameManager.vehicleUpgradeLevel)
+	$Treads3.position.z = -1 + (-1 * GameManager.vehicleUpgradeLevel)
+	$Treads4.position.z = 1.5 + (1* GameManager.vehicleUpgradeLevel)
+	$Treads5.position.z = 1.5 + (1* GameManager.vehicleUpgradeLevel)
 func _process(delta: float) -> void:
 	pass
 
 
 func _input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		var clickPosition = get_cursor_world_position()
-		print("Cursor click position: " + str(clickPosition))
-		var cellClicked = gridMap.local_to_map(clickPosition)
-		print("Clicked " + str(cellClicked))
+	var cellMousePosition = gridMap.local_to_map(get_cursor_world_position())
+	if cellMousePosition.y == 1:
+		cellMousePosition.y = 0
+		if event is InputEventMouseMotion:
+			var usedCells:Array[Vector3i] = gridMap.get_used_cells()
+			for i in usedCells.size():
+				gridMap.set_cell_item(usedCells[i], -1)
+			print("Movement " + str(cellMousePosition))
+			gridMap.set_cell_item(cellMousePosition, 0)
+		elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			print("Clicked " + str(cellMousePosition))
 		print("---")
 
 func get_cursor_world_position() -> Vector3:

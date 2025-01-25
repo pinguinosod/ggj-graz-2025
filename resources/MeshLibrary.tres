@@ -1,0 +1,20 @@
+[gd_resource type="MeshLibrary" load_steps=4 format=3 uid="uid://88lwxfrpuv3x"]
+
+[ext_resource type="Texture2D" uid="uid://dolnafgr2iqeg" path="res://sprites/cursor.png" id="1_rhbw0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfi87"]
+transparency = 1
+albedo_texture = ExtResource("1_rhbw0")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_85oto"]
+material = SubResource("StandardMaterial3D_vfi87")
+size = Vector2(1, 1)
+center_offset = Vector3(0, -0.5, 0)
+
+[resource]
+item/0/name = "Cursor"
+item/0/mesh = SubResource("PlaneMesh_85oto")
+item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/shapes = []
+item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/navigation_layers = 1
