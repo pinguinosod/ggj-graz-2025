@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgea1wn6382jc"]
+
+[ext_resource type="Script" path="res://scripts/bubble_shield.gd" id="1_oe8iw"]
+
+[sub_resource type="Shader" id="Shader_cpfh3"]
+code = "shader_type spatial;
+render_mode blend_mix, cull_back, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform float metallic : hint_range(0.0, 1.0);
+uniform float specular : hint_range(0.0, 1.0);
+uniform float bubble_thickness : hint_range(0.01, 1.0) = 0.05;
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+void vertex() {
+    UV = UV * uv1_scale.xy + uv1_offset.xy;
+}
+
+void fragment() {
+    vec2 base_uv = UV;
+
+    // Base albedo texture
+    vec4 albedo_tex = texture(texture_albedo, base_uv);
+    ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+    // Set metallic and roughness
+    METALLIC = metallic;
+    ROUGHNESS = roughness;
+    SPECULAR = specular;
+
+    // Transparency for the bubble
+    float view_angle_fade = abs(dot(NORMAL, normalize(VIEW))); // Fade based on view angle
+    ALPHA = 0.1 + 0.9 * pow(1.0 - view_angle_fade, 3.0); // Transparent edges
+
+    // Iridescence effect
+    float thickness = bubble_thickness; // Simulate thin-film interference
+    float angle_dependent_color = fract(view_angle_fade * 10.0);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ybvek"]
+render_priority = 0
+shader = SubResource("Shader_cpfh3")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic = 0.0
+shader_parameter/specular = 0.5
+shader_parameter/bubble_thickness = 0.05
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[node name="BubbleShield" type="Node3D"]
+script = ExtResource("1_oe8iw")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+radius = 0.1
+radial_segments = 24
+rings = 12
+material = SubResource("ShaderMaterial_ybvek")

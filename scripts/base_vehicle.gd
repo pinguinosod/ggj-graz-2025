@@ -27,7 +27,7 @@ func _input(event):
 			gridMap.set_cell_item(usedCells[i], -1)
 
 	var cellMousePosition = gridMap.local_to_map(get_cursor_world_position())
-	if cellMousePosition.y == 5:
+	if cellMousePosition.y == 4:
 		cellMousePosition.y = 0
 		if event is InputEventMouseMotion and gridMap.get_cell_item(cellMousePosition) == -1:
 			gridMap.set_cell_item(cellMousePosition, 0)
