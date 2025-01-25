@@ -3,6 +3,7 @@ extends Node
 const TURRET_COST: int = 100
 
 var mainScene: PackedScene = preload("res://scenes/main.tscn")
+var endScene: PackedScene = preload("res://scenes/end_screen.tscn")
 var mainMenuScene: PackedScene = preload("res://scenes/main_menu.tscn")
 var gameStarted = false
 var vehicleUpgradeLevel: int = 1
@@ -38,7 +39,11 @@ func startMinning() -> void:
 
 func damageShieldGenerator(dmg: int) -> void:
 	shieldGeneratorHealth -= dmg
-	# todo: trigger game over
+	if shieldGeneratorHealth <=0 :
+		loadEndScene()
+
+func loadEndScene() -> void:
+	get_tree().change_scene_to_packed(endScene)
 
 func loadMainScene() -> void:
 	gameStarted = true
