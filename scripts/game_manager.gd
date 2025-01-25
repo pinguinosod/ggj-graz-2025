@@ -6,7 +6,6 @@ var gameStarted = false
 var vehicleUpgradeLevel: int = 1
 
 
-
 func loadMainScene() -> void:
 	gameStarted = true
 	get_tree().change_scene_to_packed(mainScene)

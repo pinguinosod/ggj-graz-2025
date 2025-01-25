@@ -1,7 +1,7 @@
 extends Node3D
 
-
 @onready var gridMap: GridMap = $GridMap
+var buildings: Array[Vector3i]
 
 func _ready() -> void:
 	$CSGBox3DVehiclePlatform.size.x = 2+ 2*GameManager.vehicleUpgradeLevel
@@ -21,18 +21,23 @@ func _process(delta: float) -> void:
 
 
 func _input(event):
+	var usedCells:Array[Vector3i] = gridMap.get_used_cells()
+	for i in usedCells.size():
+		if gridMap.get_cell_item(usedCells[i]) == 0:
+			gridMap.set_cell_item(usedCells[i], -1)
+
 	var cellMousePosition = gridMap.local_to_map(get_cursor_world_position())
-	if cellMousePosition.y == 1:
+	if cellMousePosition.y == 5:
 		cellMousePosition.y = 0
-		if event is InputEventMouseMotion:
-			var usedCells:Array[Vector3i] = gridMap.get_used_cells()
-			for i in usedCells.size():
-				gridMap.set_cell_item(usedCells[i], -1)
-			print("Movement " + str(cellMousePosition))
+		if event is InputEventMouseMotion and gridMap.get_cell_item(cellMousePosition) == -1:
 			gridMap.set_cell_item(cellMousePosition, 0)
 		elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			print("Clicked " + str(cellMousePosition))
-		print("---")
+			handleClickOnCell(cellMousePosition)
+
+func handleClickOnCell(cellPos: Vector3i)-> void:
+	if gridMap.get_cell_item(cellPos) == -1:
+		gridMap.set_cell_item(cellPos, 1) # turret base is on first floor
+		gridMap.set_cell_item(Vector3(cellPos.x, 1, cellPos.z), 2) # turret head is on floor second floor
 
 func get_cursor_world_position() -> Vector3:
 	const RAY_DISTANCE = 64.0
