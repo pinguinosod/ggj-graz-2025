@@ -13,10 +13,5 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_rigid_body_3d_body_entered(body: Node) -> void:
-	print(body)
-	queue_free()
-
-
 func _on_timer_timeout() -> void:
 	queue_free()

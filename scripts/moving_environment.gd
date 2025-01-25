@@ -49,7 +49,5 @@ func spawnInstanceOf(prefab: PackedScene, minX: float = 15, maxX :float = 80, mi
 	var positionX = randf_range(minX, maxX)
 	instance.global_position = Vector3(positionX, 0, positionZ) - position
 	if randi_range(0,100) > 50:
-		print("flip", positionZ)
 		instance.position.z = -1 * positionZ
-		print(instance.global_position.z)
 	add_child(instance)

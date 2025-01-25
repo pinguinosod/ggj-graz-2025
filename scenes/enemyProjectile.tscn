@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/enemy_projectile.gd" id="1_v8idi"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nnlnu"]
-radius = 0.114632
+radius = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_magkp"]
 albedo_color = Color(0.36, 0.29238, 0.2772, 1)
@@ -18,7 +18,7 @@ shape = SubResource("SphereShape3D_nnlnu")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 material_override = SubResource("StandardMaterial3D_magkp")
-radius = 0.15
+radius = 0.1
 radial_segments = 6
 rings = 3
 
