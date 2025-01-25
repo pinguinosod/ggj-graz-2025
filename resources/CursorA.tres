@@ -1,0 +1,13 @@
+[gd_resource type="PlaneMesh" load_steps=3 format=3 uid="uid://dj3furjh6b1mf"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v6h3w"]
+load_path = "res://.godot/imported/cursor.png-ab659432fe95e81e8963a978cc7193a5.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4p15n"]
+transparency = 1
+albedo_texture = SubResource("CompressedTexture2D_v6h3w")
+
+[resource]
+material = SubResource("StandardMaterial3D_4p15n")
+size = Vector2(1, 1)
+center_offset = Vector3(0, -0.24, 0)
