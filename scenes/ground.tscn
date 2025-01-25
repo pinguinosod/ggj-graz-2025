@@ -6,6 +6,6 @@ albedo_color = Color(0.66, 0.4884, 0.231, 1)
 [node name="Ground" type="Node3D"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 material_override = SubResource("StandardMaterial3D_ax0dv")
-size = Vector3(100, 0.1, 100)
+size = Vector3(2000, 0.1, 900)

@@ -1,12 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://by5bscbhfuupo"]
+[gd_scene load_steps=10 format=3 uid="uid://by5bscbhfuupo"]
 
 [ext_resource type="PackedScene" uid="uid://blbtunr4kureu" path="res://scenes/ui.tscn" id="1_28yct"]
 [ext_resource type="Script" path="res://scripts/camera_3d.gd" id="2_eprbc"]
 [ext_resource type="PackedScene" uid="uid://cf81a8250qtyl" path="res://scenes/base_vehicle.tscn" id="2_mlf02"]
 [ext_resource type="PackedScene" uid="uid://bu6hagkxh7ieq" path="res://scenes/ground.tscn" id="2_vyyfv"]
 [ext_resource type="PackedScene" uid="uid://cwypqdqak0jyu" path="res://scenes/moving_environment.tscn" id="5_8mv61"]
+[ext_resource type="PackedScene" uid="uid://dqvwlixcitlld" path="res://models/cactus.tscn" id="6_s7726"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yy36r"]
+
+[sub_resource type="Sky" id="Sky_3gl5o"]
+sky_material = SubResource("ProceduralSkyMaterial_yy36r")
 
 [sub_resource type="Environment" id="Environment_1ni64"]
+background_mode = 2
+sky = SubResource("Sky_3gl5o")
 
 [node name="main" type="Node3D"]
 
@@ -31,3 +39,4 @@ offset = Vector3(0, 12, 3)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.766955, 0)
 
 [node name="MovingEnvironment" parent="." instance=ExtResource("5_8mv61")]
+cactusPrefab = ExtResource("6_s7726")

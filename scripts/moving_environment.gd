@@ -2,6 +2,7 @@ extends Node3D
 
 @export var humanPrefab: PackedScene
 @export var rockPrefab: PackedScene
+@export var cactusPrefab: PackedScene
 
 var isMoving = false
 var movementSpeed = 3
@@ -10,6 +11,9 @@ var timeTraveled = 0
 
 func _ready() -> void:
 	GameManager.movementStarted.connect(_handleMovementStarted)
+	spawnRocks()
+	spawnHumans()
+	spawnCacti()
 
 func _process(delta: float) -> void:
 	if isMoving:
@@ -19,21 +23,32 @@ func _process(delta: float) -> void:
 		timeTraveled = 0
 		isMoving = false
 		GameManager.startMinning()
+		await get_tree().create_timer(1).timeout
 		spawnRocks()
 		spawnHumans()
+		spawnCacti()
 
 func _handleMovementStarted():
 	isMoving = true
 
 func spawnRocks():
-	for i in 3:
+	for i in 24:
 		spawnInstanceOf(rockPrefab)
+
+func spawnCacti():
+	for i in 24:
+		spawnInstanceOf(cactusPrefab)
 
 func spawnHumans():
 	for i in 3 * GameManager.currentVeinLevel:
-		spawnInstanceOf(humanPrefab)
+		spawnInstanceOf(humanPrefab, 2+ (2 * GameManager.vehicleUpgradeLevel), 6+ (2 * GameManager.vehicleUpgradeLevel), 2 + (2 * GameManager.vehicleUpgradeLevel), 6 + (2 * GameManager.vehicleUpgradeLevel))
 
-func spawnInstanceOf(prefab: PackedScene):
+func spawnInstanceOf(prefab: PackedScene, minX: float = 15, maxX :float = 80, minZ: float = 8, maxZ :float = 64):
 	var instance: Node3D = prefab.instantiate()
-	instance.global_position = position + Vector3(randf_range(5, 10), 0, randf_range(5,10))
+	var positionZ = randf_range(minZ, maxZ)
+	instance.global_position = Vector3(randf_range(15, 80), 0, positionZ) - position
+	if randi_range(0,100) > 50:
+		print("flip", positionZ)
+		instance.position.z = -1 * positionZ
+		print(instance.global_position.z)
 	add_child(instance)

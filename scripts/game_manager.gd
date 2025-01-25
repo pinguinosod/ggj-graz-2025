@@ -5,7 +5,7 @@ const TURRET_COST: int = 100
 var mainScene: PackedScene = preload("res://scenes/main.tscn")
 var mainMenuScene: PackedScene = preload("res://scenes/main_menu.tscn")
 var gameStarted = false
-var vehicleUpgradeLevel: int = 2
+var vehicleUpgradeLevel: int = 1
 var resources: int = 100
 var currentVeinLevel: int = 1
 var veinResources: int = 50
@@ -32,7 +32,7 @@ func spendResources(howMuch: int) -> bool:
 
 func startMinning() -> void:
 	currentVeinLevel += 1
-	veinResources = currentVeinLevel * 200
+	veinResources = currentVeinLevel * 20 # 200
 	minningStarted.emit()
 
 func loadMainScene() -> void:
