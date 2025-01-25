@@ -23,6 +23,10 @@ GameManager="*res://scripts/game_manager.gd"
 window/size/viewport_width=960
 window/size/viewport_height=540
 
+[filesystem]
+
+import/blender/enabled=false
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
