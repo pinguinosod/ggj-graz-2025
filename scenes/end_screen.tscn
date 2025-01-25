@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://cialklxxo6dfc"]
+[gd_scene load_steps=3 format=3 uid="uid://cialklxxo6dfc"]
+
+[ext_resource type="Script" path="res://scenes/end_screen.gd" id="1_jfgkl"]
+[ext_resource type="Texture2D" uid="uid://cnixc0csvd6h8" path="res://ui_images/beast_end.png" id="2_6yxsn"]
 
 [node name="EndScreen" type="Node2D"]
+script = ExtResource("1_jfgkl")
+
+[node name="TextureButtonEnd" type="TextureButton" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("2_6yxsn")
+texture_pressed = ExtResource("2_6yxsn")
+texture_hover = ExtResource("2_6yxsn")
+texture_disabled = ExtResource("2_6yxsn")
+texture_focused = ExtResource("2_6yxsn")
+
+[connection signal="pressed" from="TextureButtonEnd" to="." method="_on_texture_button_end_pressed"]

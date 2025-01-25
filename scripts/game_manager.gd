@@ -10,7 +10,7 @@ var vehicleUpgradeLevel: int = 1
 var resources: int = 100
 var currentVeinLevel: int = 1
 var veinResources: int = 50
-var shieldGeneratorHealth: int = 100
+var shieldGeneratorHealth: int = 1
 
 signal veinDeepleted
 signal movementStarted
