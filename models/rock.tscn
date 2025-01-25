@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=4 uid="uid://cw0g6i2e4051x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tgsuy"]
+albedo_color = Color(0.47, 0.376862, 0.3337, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nnf0p"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ayp0x"]
+_surfaces = [{
+"aabb": AABB(-1, -1.45438, -1, 2.00229, 1.308, 2.80853),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AwABAAIAAgAHAAMAAgAGAAcABgAFAAcABgAEAAUAAQAEAAAAAgAEAAYAAgAAAAQABwAFAAMAAgABAAAAAQADAAUABAABAAUA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("ABndvgits7/2fec/cj49v4fQm74o12w9AACAvwAAgL8AAIC/aqaWvghQQL7zRL6+GkuAP7wBtL+ihIk/GmRlPg3jFb4aDtY+2o5jPw0pur8L7GK/r51KPx4iqb4maee+")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_47jpj"]
+resource_name = "Rock_Cube_008"
+_surfaces = [{
+"aabb": AABB(-1, -1.45438, -1, 2.00229, 1.308, 2.80853),
+"attribute_data": PackedByteArray("AAAAPgAAgD4AAAA+AACAPgAAwD4AAAAAAABgPwAAgD4AACA/AAAAAAAAYD8AAIA+AABgPwAAgD4AAGA/AACAPgAAwD4AAEA/AAAAPgAAAD8AAMA+AABAPwAAwD4AAEA/AAAgPwAAQD8AACA/AABAPwAAID8AAEA/AAAgPwAAQD8AAMA+AACAPgAAwD4AAIA+AADAPgAAgD4AAMA+AACAPgAAID8AAIA+AAAgPwAAgD4AACA/AACAPgAAID8AAIA+AADAPgAAAD8AAMA+AAAAPwAAwD4AAAA/AAAgPwAAAD8AACA/AAAAPwAAID8AAAA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("DwAGAAoACAAbAAwACAAYABsAGQAVAB0AGQARABUAAwAQAAAACQASABoACQABABIAHAAUAA0ACwAHAAIABAAOABYAEwAFABcA"),
+"material": SubResource("StandardMaterial3D_nnf0p"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 30,
+"vertex_data": PackedByteArray("ABndvgits7/2fec/ABndvgits7/2fec/ABndvgits7/2fec/cj49v4fQm74o12w9cj49v4fQm74o12w9cj49v4fQm74o12w9cj49v4fQm74o12w9cj49v4fQm74o12w9AACAvwAAgL8AAIC/AACAvwAAgL8AAIC/AACAvwAAgL8AAIC/AACAvwAAgL8AAIC/aqaWvghQQL7zRL6+aqaWvghQQL7zRL6+aqaWvghQQL7zRL6+aqaWvghQQL7zRL6+GkuAP7wBtL+ihIk/GkuAP7wBtL+ihIk/GkuAP7wBtL+ihIk/GkuAP7wBtL+ihIk/GmRlPg3jFb4aDtY+GmRlPg3jFb4aDtY+GmRlPg3jFb4aDtY+GmRlPg3jFb4aDtY+2o5jPw0pur8L7GK/2o5jPw0pur8L7GK/2o5jPw0pur8L7GK/r51KPx4iqb4maee+r51KPx4iqb4maee+r51KPx4iqb4maee+RZRbxP///z+VargPuPbeptcak4UWQfoDRZRbxP///z+ibDvl////PzlgDZT///8/GDrt1RaqyCfXGpOFFkH6A6TXBfejkm/jlWq4D4vytbAYOu3VFqrIJ9cak4UWQfoDpNcF95CrQdrmmZfz////v6JsO+X///8/GDrt1RaqyCdFlFvE////P9fULqCISFD0lWq4Dzb0x6w5YA2U////P+aZl/P///+/19QuoA5SiPGibDvl////PzlgDZT///8/pNcF99136ufX1C6gPFMw8ZVquA9a6Qy4pNcF96iLAebmmZfz////v9fULqDKYR3j")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ayp0x")
+
+[node name="Rock" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 20.926, 0, -9.313)
+
+[node name="Rock" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.0284, 1.20486, 18.3137)
+material_override = SubResource("StandardMaterial3D_tgsuy")
+mesh = SubResource("ArrayMesh_47jpj")
+skeleton = NodePath("")

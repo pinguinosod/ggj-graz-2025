@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwypqdqak0jyu"]
+
+[ext_resource type="PackedScene" uid="uid://dtsttqykk35gt" path="res://models/human.tscn" id="1_7ph5l"]
+[ext_resource type="Script" path="res://scripts/moving_environment.gd" id="1_yfun8"]
+[ext_resource type="PackedScene" uid="uid://cw0g6i2e4051x" path="res://models/rock.tscn" id="2_qg1g7"]
+
+[node name="MovingEnvironment" type="Node3D"]
+script = ExtResource("1_yfun8")
+humanPrefab = ExtResource("1_7ph5l")
+rockPrefab = ExtResource("2_qg1g7")
+
+[node name="Human2" parent="." instance=ExtResource("1_7ph5l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.54224, 0, -4.47187)
+
+[node name="Rock" parent="." instance=ExtResource("2_qg1g7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.47664, 0, 4.2202)
