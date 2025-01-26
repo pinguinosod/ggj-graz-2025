@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bdgglag373mt0" path="res://scenes/particles_smoke.tscn" id="2_lsdam"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgaue"]
-resource_local_to_scene = true
 resource_name = "TurretBase"
 cull_mode = 2
 albedo_color = Color(0.78, 0.78, 0.78, 1)
@@ -88,7 +87,7 @@ mesh = SubResource("ArrayMesh_0udh8")
 skeleton = NodePath("")
 
 [node name="TimerAttack" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 autostart = true
 
 [node name="Area3DRangeAttack" type="Area3D" parent="."]

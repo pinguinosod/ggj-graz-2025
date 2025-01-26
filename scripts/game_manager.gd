@@ -7,7 +7,7 @@ var endScene: PackedScene = preload("res://scenes/end_screen.tscn")
 var mainMenuScene: PackedScene = preload("res://scenes/main_menu.tscn")
 var gameStarted = false
 var vehicleUpgradeLevel: int = 2
-var resources: int = 100
+var resources: int = 900
 var currentVeinLevel: int = 1
 var veinResources: int = 50
 var shieldGeneratorHealth: int = 100
@@ -15,6 +15,7 @@ var shieldGeneratorHealth: int = 100
 signal veinDeepleted
 signal movementStarted
 signal minningStarted
+
 
 func doMine() -> void:
 	if veinResources > 0:
@@ -47,6 +48,7 @@ func loadEndScene() -> void:
 	get_tree().change_scene_to_packed(endScene)
 
 func loadMainScene() -> void:
+	restartVariables()
 	gameStarted = true
 	get_tree().change_scene_to_packed(mainScene)
 

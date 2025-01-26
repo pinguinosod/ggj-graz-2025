@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://bdgglag373mt0" path="res://scenes/particles_smoke.tscn" id="2_lsdam"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgaue"]
-resource_local_to_scene = true
 resource_name = "TurretBase"
 cull_mode = 2
 albedo_color = Color(0.78, 0.78, 0.78, 1)
@@ -15,7 +14,7 @@ resource_name = "Hole"
 cull_mode = 2
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_tpoah"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_82pte"]
 _surfaces = [{
 "aabb": AABB(-1.10327, -0.805529, -1.22181, 2.20655, 1.61106, 2.44362),
 "format": 34896613377,
@@ -39,8 +38,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_0udh8"]
-resource_local_to_scene = true
+[sub_resource type="ArrayMesh" id="ArrayMesh_tvowd"]
 resource_name = "Turret_Cube_007"
 _surfaces = [{
 "aabb": AABB(-1.10327, -0.805529, -1.22181, 2.20655, 1.61106, 2.44362),
@@ -68,7 +66,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAD//9HXHMAAAP//i4y7wg0DzJSLjB3ADQPMlP//psENA8yUAAAzyA0DzJRzc1zGAAD//3NziscAAP//LSg/ygAAAACLjOg/AAAAANHXAc4NAzJr///oPw0DMmuLjOg/DQMya3NzEzwNAzJrAADc4gAAAAAtKBM8AAAAAHNzEzzYebDzrKyo6WuMyPlXba/a/r//3yC7buJavtHggcS+3fKKhfo9y1/a8oqF+vKKhfq7ZnfNn+Muzrtmd827ZnfN")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_tpoah")
+shadow_mesh = SubResource("ArrayMesh_82pte")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_h1251"]
 height = 3.0
@@ -81,14 +79,15 @@ radius = 0.171987
 [node name="TurretHeadSmart" type="Node3D"]
 script = ExtResource("1_vofkb")
 shootParticlesPrefab = ExtResource("2_lsdam")
+hitpoints = null
 
 [node name="TurretHead" type="MeshInstance3D" parent="."]
 transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0, 0.1, 0)
-mesh = SubResource("ArrayMesh_0udh8")
+mesh = SubResource("ArrayMesh_tvowd")
 skeleton = NodePath("")
 
 [node name="TimerAttack" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 autostart = true
 
 [node name="Area3DRangeAttack" type="Area3D" parent="."]
