@@ -5,6 +5,7 @@ const TURRET_COST: int = 100
 var mainScene: PackedScene = preload("res://scenes/main.tscn")
 var endScene: PackedScene = preload("res://scenes/end_screen.tscn")
 var mainMenuScene: PackedScene = preload("res://scenes/main_menu.tscn")
+var introScene: PackedScene = preload("res://scenes/intro_scene.tscn")
 var gameStarted = false
 var vehicleUpgradeLevel: int = 2
 var resources: int = 900
@@ -46,6 +47,9 @@ func damageShieldGenerator(dmg: int) -> void:
 
 func loadEndScene() -> void:
 	get_tree().change_scene_to_packed(endScene)
+
+func loadIntroScene() -> void:
+	get_tree().change_scene_to_packed(introScene)
 
 func loadMainScene() -> void:
 	restartVariables()

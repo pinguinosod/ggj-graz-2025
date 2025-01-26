@@ -17,4 +17,4 @@ func _on_slide_1_pressed() -> void:
 
 func _on_button_Slide2_pressed() -> void:
 	_hide_all()
-	GameManager.loadMainScene()
+	GameManager.loadIntroScene()

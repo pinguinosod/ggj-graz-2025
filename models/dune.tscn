@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=4 uid="uid://bsxt03mrwp550"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0bs73"]
+albedo_color = Color(0.66, 0.47278, 0.1716, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3a28b"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_txjql"]
+_surfaces = [{
+"aabb": AABB(-11.7467, -1, -7.10215, 25.9193, 5.12742, 9.79752),
+"format": 34896613377,
+"index_count": 84,
+"index_data": PackedByteArray("CwAGAAQACwAJAAYACgAGAAkACgAHAAYABwAEAAYABwAFAAQADgADAAEADgAMAAMAAQACAAAAAQADAAIADgAAAA0ADgABAAAABQALAAQABQAIAAsABQAKAAgABQAHAAoADAAJAA8ADAAKAAkADQAJAAsADQAPAAkAAAAPAA0AAAACAA8AAwAPAAIAAwAMAA8ACAANAAsACAAOAA0ACAAMAA4ACAAKAAwA"),
+"lods": [2.76892, PackedByteArray("DQAPAAYAAAAPAA0AAAACAA8ACgAGAA8ACgAHAAYAAwAPAAIABwANAAYABwAOAA0ADgAAAA0ADgACAAAADgADAAIADgAKAAMADgAHAAoAAwAKAA8A")],
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("VqkFz3hsAAAIfwAAAAAAAAW9tLRKbAAA//8AAAw8AAASRJ9h95AAANUbAAAwTAAAJy7aY7LTAAAAAAAAev0AAG5NAAAYJgAAooZHjPbdAAAmfgAA//8AAAR0//9wnwAAYcUAALz9AAAehOz724YAADtmAAAMEwAA37J9oBfjAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_iwv4e"]
+resource_name = "dune_Cube"
+_surfaces = [{
+"aabb": AABB(-11.7467, -1, -7.10215, 25.9193, 5.12742, 9.79752),
+"attribute_data": PackedByteArray("/5//f/+f/3//n/9//1//f/9f/3//X/9//5//P/+f/z//n/8//1//P/9f/z//X/8//9//f/+f/7//n/+//x//f/9f/7//X/+//58AAP/f/z//n////x//P/9fAAD/X////z//f/9f/5//X/+f/7//P/+f/x//n/8f/7//P/8//z//X/8f/1//H/+//3//n/+f/7//f/+f/5//T/8//1//L/9f/y//r/9//6//f/+f/4//n/+P/0//f/9f/4//X/+P/6//P/+v/z//n/8v/5//L/+f/3//n/8//1//P/+f////X/8f/5//j/+f/y//n/8v"),
+"format": 34896613399,
+"index_count": 84,
+"index_data": PackedByteArray("JAATAAwAJAAeABMAIQASAB0AIQAWABIAFwAOABQAFwARAA4ALQAJAAMALQAmAAkABAAGAAAABAAKAAYALgACACsALgAFAAIAEAAlAA0AEAAaACUADwAfABgADwAVAB8AKAAcADMAKAAgABwAKQAbACIAKQAwABsAAQAxACoAAQAHADEACwAyAAgACwAnADIAGQAsACMAGQAvACwAGAAmAC0AGAAfACYA"),
+"lods": [2.76892, PackedByteArray("KQAwABMANAAwACkANAA1ADAAIAASADoAIAAWABIACwA6AAgAFwA5ADcAFwAuADkALgAAADkALgAGAAAALgAKAAYALQAfAAkALQAVAB8ANgA4ADsA")],
+"material": SubResource("StandardMaterial3D_3a28b"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 60,
+"vertex_data": PackedByteArray("VqkFz3hsculWqQXPeGy08FapBc94bHniCH8AAAAAzsAIfwAAAADF+Ah/AAAAAGnhBb20tEpsjPcFvbS0SmyL3gW9tLRKbH7y//8AAAw8C8f//wAADDzz/f//AAAMPOXnEkSfYfeQCvUSRJ9h95D10xJEn2H3kLHI1RsAADBMHMDVGwAAMEzI1NUbAAAwTMLIJy7aY7LTKKInLtpjstMm9ycu2mOy04rMAAAAAHr9/78AAAAAev1pnwAAAAB6/bHIbk0AABgmmsBuTQAAGCa53W5NAAAYJg/VooZHjPbdv/yihkeM9t3dvqKGR4z23Xm5ooZHjPbd0vkmfgAA//8EwCZ+AAD//+m2Jn4AAP///rQEdP//cJ9V8QR0//9wn17dBHT//3CfKfkEdP//cJ+x1GHFAAC8/dfDYcUAALz9FtxhxQAAvP2iyB6E7Pvbhin3HoTs+9uGr/8ehOz724bM4h6E7PvbhnPdO2YAAAwTpsE7ZgAADBPe4TtmAAAME87d37J9oBfj9P/fsn2gF+N489+yfaAX4/3k37J9oBfjmNVWqQXPeGzCxwW9tLRKbJHn//8AAAw8f/EnLtpjstOBuCZ+AAD//xjCHoTs+9uGbNHfsn2gF+Oe49+yfaAX40ziVsowo3+Z4KzzxASsWBzTcVqi6cIJy/enC6XHwEenXaQbKMwVDD15YZCWRMxpLf8P3HhksI/UIqcN3lOlXQzQeanIJK1H0h6ph/JbOHZ3ja//+q6fegD0gEz0ij723VilSRlac3jEHLBKxlauNINpq/nvOBNk62YfvXWFro4FOH2x8LEWSOyFIrqJBak7x3yuKHbGroDJt6wxMuZmcDRRCD7vrA9xhjmqAzTzDV3DE62NxuOuTSVYbTvI1angw3awSIEerH6XHa4AL0MOb+68C9rhK5PNzu/qmSDVBBf/+aL0EX5NmsuxrOkfvAJ9JdcQ")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_txjql")
+
+[node name="Dune" type="Node3D"]
+
+[node name="Dune" type="MeshInstance3D" parent="."]
+transform = Transform3D(-3.0598e-07, 0, 7, 0, 7, 0, -7, 0, -3.0598e-07, 0, 6.39064, 0)
+material_override = SubResource("StandardMaterial3D_0bs73")
+mesh = SubResource("ArrayMesh_iwv4e")
+skeleton = NodePath("")
+
+[node name="Dune2" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.42632, 0, 6.10413, 0, 7, 0, -6.10413, 0, 3.42632, 0, 6.39064, -112.669)
+material_override = SubResource("StandardMaterial3D_0bs73")
+mesh = SubResource("ArrayMesh_iwv4e")
+skeleton = NodePath("")
+
+[node name="Dune3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.20711, 0, -6.64294, 0, 7, 0, 6.64294, 0, -2.20711, 0, 6.39064, 130.84)
+material_override = SubResource("StandardMaterial3D_0bs73")
+mesh = SubResource("ArrayMesh_iwv4e")
+skeleton = NodePath("")
+
+[node name="Dune4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.325718, 0, 6.99242, 0, 7, 0, -6.99242, 0, -0.325718, 0, 6.39064, 285.764)
+material_override = SubResource("StandardMaterial3D_0bs73")
+mesh = SubResource("ArrayMesh_iwv4e")
+skeleton = NodePath("")
+
+[node name="Dune5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.22183, 0, -6.63804, 0, 7, 0, 6.63804, 0, -2.22183, 0, 6.39064, 64.4114)
+material_override = SubResource("StandardMaterial3D_0bs73")
+mesh = SubResource("ArrayMesh_iwv4e")
+skeleton = NodePath("")
+
+[node name="Dune7" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.42632, 0, 6.10413, 0, 7, 0, -6.10413, 0, 3.42632, 0, 6.39064, 379.744)
+material_override = SubResource("StandardMaterial3D_0bs73")
+mesh = SubResource("ArrayMesh_iwv4e")
+skeleton = NodePath("")
+
+[node name="Dune13" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.20711, 0, -6.64294, 0, 7, 0, 6.64294, 0, -2.20711, 0, 6.39064, -394.105)
+material_override = SubResource("StandardMaterial3D_0bs73")
+mesh = SubResource("ArrayMesh_iwv4e")
+skeleton = NodePath("")
+
+[node name="Dune14" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.325718, 0, 6.99242, 0, 7, 0, -6.99242, 0, -0.325718, 0, 6.39064, -239.18)
+material_override = SubResource("StandardMaterial3D_0bs73")
+mesh = SubResource("ArrayMesh_iwv4e")
+skeleton = NodePath("")

@@ -15,7 +15,7 @@ cull_mode = 2
 albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
 roughness = 0.5
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_jyk0y"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_w6avh"]
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 5.60368, 2),
 "format": 34359742465,
@@ -69,7 +69,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AACAvwAAgL8AAIA/AACAvwAAgL8AAIA/Buy9vgaUrD4G7L0+Buy9vgaUrD4G7L0+Buy9vgaUrD4G7L0+Buy9vgaUrD4G7L0+AACAvwAAgL8AAIC/AACAvwAAgL8AAIC/Buy9vgaUrD4G7L2+Buy9vgaUrD4G7L2+Buy9vgaUrD4G7L2+Buy9vgaUrD4G7L2+AACAPwAAgL8AAIA/AACAPwAAgL8AAIA/Buy9PgaUrD4G7L0+Buy9PgaUrD4G7L0+Buy9PgaUrD4G7L0+Buy9PgaUrD4G7L0+AACAPwAAgL8AAIC/AACAPwAAgL8AAIC/Buy9PgaUrD4G7L2+Buy9PgaUrD4G7L2+Buy9PgaUrD4G7L2+Buy9PgaUrD4G7L2+Buy9vr2IR0AG7L0+Buy9vr2IR0AG7L0+Buy9vr2IR0AG7L2+Buy9vr2IR0AG7L2+Buy9Pr2IR0AG7L2+Buy9Pr2IR0AG7L2+Buy9Pr2IR0AG7L0+Buy9Pr2IR0AG7L0+/3/yqAy+e/DzKPKoNqR95v9//3////8//3/yqFatxPzzKPKoDL578AAA/3////+/C9f//zNxfebzKPKoBZ/44P////////+/C9f//waf+ODzKPKo4qZT6QAA/3////+//3/yqAOzmPgL1/Ko8kF78P9//3////8//3/yqPJBe/AL1/KoqFKN7P///3////+/C9f///hg+OAL1/Ko+0zj7f////////+/C9f//4p5U+kL1/Ko+WD44P///3////+//3//f////z8AAP9/////v/////////+/AAD/f////7//////////v////3////+//3//f////z////9/////vw==")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_jyk0y")
+shadow_mesh = SubResource("ArrayMesh_w6avh")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_deqrs"]
 height = 1.62503
