@@ -40,7 +40,7 @@ func spawnCacti():
 		spawnInstanceOf(cactusPrefab)
 
 func spawnHumans():
-	for i in 4 * GameManager.currentVeinLevel:
+	for i in 5 * GameManager.currentVeinLevel:
 		spawnInstanceOf(humanPrefab, 8 + (2 * GameManager.vehicleUpgradeLevel), 80+ (2 * GameManager.vehicleUpgradeLevel), 2 + (2 * GameManager.vehicleUpgradeLevel), 6 + (2 * GameManager.vehicleUpgradeLevel))
 
 func spawnInstanceOf(prefab: PackedScene, minX: float = 15, maxX :float = 120, minZ: float = 8, maxZ :float = 64):

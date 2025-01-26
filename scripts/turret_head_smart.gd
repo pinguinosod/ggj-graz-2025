@@ -4,13 +4,18 @@ var targets: Array[Area3D]
 @export var shootParticlesPrefab: PackedScene
 @export var hitpoints: int = 100
 
+var isActive = false
+
 var gridMap: GridMap
 
 func _ready() -> void:
 	gridMap = get_tree().root.get_node("main/BaseVehicle/GridMap")
+	
+	GameManager.movementStarted.connect(_handleMovementStarted)
+	GameManager.minningStarted.connect(_handleMinningStarted)
 
 func _process(delta: float) -> void:
-	if targets.size() > 0 and is_instance_valid(targets[0]):
+	if targets.size() > 0 and is_instance_valid(targets[0]) and isActive:
 		# rotate to point towards targets[0]
 		rotate_to_face_target(targets[0].global_position, delta)
 
@@ -35,7 +40,7 @@ func rotate_to_face_target(targetPos: Vector3, delta: float) -> void:
 
 
 func _on_timer_attack_timeout() -> void:
-	if targets.size() > 0 and is_instance_valid(targets[0]) and targets[0].get_parent().has_method("doDamage"):
+	if targets.size() > 0 and is_instance_valid(targets[0]) and targets[0].get_parent().has_method("doDamage") and isActive:
 		targets[0].get_parent().doDamage()
 		$AudioStreamPlayer3D.play()
 		
@@ -90,3 +95,8 @@ func _on_area_3d_hitbox_body_entered(body: Node3D) -> void:
 			cellPos.y = 0
 			gridMap.set_cell_item(cellPos, -1)
 			queue_free()
+
+func _handleMovementStarted():
+	isActive = true
+func _handleMinningStarted():
+	isActive = false

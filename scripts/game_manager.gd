@@ -1,6 +1,6 @@
 extends Node
 
-const TURRET_COST: int = 100
+const TURRET_COST: int = 50
 
 var mainScene: PackedScene = preload("res://scenes/main.tscn")
 var endScene: PackedScene = preload("res://scenes/end_screen.tscn")
