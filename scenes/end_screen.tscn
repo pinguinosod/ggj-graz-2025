@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cialklxxo6dfc"]
+[gd_scene load_steps=4 format=3 uid="uid://cialklxxo6dfc"]
 
 [ext_resource type="Script" path="res://scenes/end_screen.gd" id="1_jfgkl"]
 [ext_resource type="Texture2D" uid="uid://cnixc0csvd6h8" path="res://ui_images/beast_end.png" id="2_6yxsn"]
+[ext_resource type="AudioStream" uid="uid://6arri202vn6c" path="res://music/warning.wav" id="3_n1rt7"]
 
 [node name="EndScreen" type="Node2D"]
 script = ExtResource("1_jfgkl")
@@ -14,5 +15,9 @@ texture_pressed = ExtResource("2_6yxsn")
 texture_hover = ExtResource("2_6yxsn")
 texture_disabled = ExtResource("2_6yxsn")
 texture_focused = ExtResource("2_6yxsn")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_n1rt7")
+autoplay = true
 
 [connection signal="pressed" from="TextureButtonEnd" to="." method="_on_texture_button_end_pressed"]

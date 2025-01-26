@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bv5do8x5jenup"]
+[gd_scene load_steps=12 format=3 uid="uid://bv5do8x5jenup"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_i0mm4"]
 [ext_resource type="Texture2D" uid="uid://cp28qljdgy8f6" path="res://ui_images/beast_start.png" id="2_12c4c"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ja4jrt2s6vx4" path="res://ui_images/Story.png" id="5_oa1bk"]
 [ext_resource type="Texture2D" uid="uid://dfgvlvgpjmxb0" path="res://ui_images/beast_login.png" id="6_t5i3l"]
 [ext_resource type="FontFile" uid="uid://74u7kse01sf6" path="res://ui_fonts/mutant-night.ttf" id="7_sw0p3"]
+[ext_resource type="AudioStream" uid="uid://dfpe4mmtrubt2" path="res://music/05_Arrow Hit.mp3" id="8_k2e5b"]
 
 [sub_resource type="Animation" id="Animation_15m8l"]
 length = 0.001
@@ -115,6 +116,10 @@ libraries = {
 "": SubResource("AnimationLibrary_6vtxa")
 }
 autoplay = "blinking"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_k2e5b")
+autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/StartSlide/Control/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Slide1" to="." method="_on_slide_1_pressed"]

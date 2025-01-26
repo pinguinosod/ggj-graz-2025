@@ -37,6 +37,7 @@ func rotate_to_face_target(targetPos: Vector3, delta: float) -> void:
 func _on_timer_attack_timeout() -> void:
 	if targets.size() > 0 and is_instance_valid(targets[0]) and targets[0].get_parent().has_method("doDamage"):
 		targets[0].get_parent().doDamage()
+		$AudioStreamPlayer3D.play()
 		
 		# Instantiate the particles
 		var shootParticles = shootParticlesPrefab.instantiate()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://douwfgs8nwob"]
+[gd_scene load_steps=21 format=4 uid="uid://douwfgs8nwob"]
 
 [ext_resource type="PackedScene" uid="uid://dglv637xy3jhr" path="res://scenes/environment.tscn" id="1_g2sof"]
 [ext_resource type="Script" path="res://scenes/intro_scene.gd" id="1_unscq"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://qaurrepp60w" path="res://models/solar_panel.tscn" id="6_sgicd"]
 [ext_resource type="PackedScene" uid="uid://cobwqkir50x3k" path="res://models/miner.tscn" id="7_fy4hr"]
 [ext_resource type="PackedScene" uid="uid://bsxt03mrwp550" path="res://models/dune.tscn" id="8_e4v60"]
+[ext_resource type="AudioStream" uid="uid://dfpe4mmtrubt2" path="res://music/05_Arrow Hit.mp3" id="11_r5vqi"]
 
 [sub_resource type="Animation" id="Animation_mfsvc"]
 length = 0.001
@@ -528,3 +529,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.7947, 0, 2.26222)
 
 [node name="Dune" parent="." instance=ExtResource("8_e4v60")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 700, 0, 0)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_r5vqi")

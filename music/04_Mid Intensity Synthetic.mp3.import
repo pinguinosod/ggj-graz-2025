@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://df5f317k3hjli"
+path="res://.godot/imported/04_Mid Intensity Synthetic.mp3-18ae9ea987930a01587015c7c1c2b3a6.mp3str"
+
+[deps]
+
+source_file="res://music/04_Mid Intensity Synthetic.mp3"
+dest_files=["res://.godot/imported/04_Mid Intensity Synthetic.mp3-18ae9ea987930a01587015c7c1c2b3a6.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

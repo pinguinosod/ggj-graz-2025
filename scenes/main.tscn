@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://by5bscbhfuupo"]
+[gd_scene load_steps=10 format=3 uid="uid://by5bscbhfuupo"]
 
 [ext_resource type="PackedScene" uid="uid://blbtunr4kureu" path="res://scenes/ui.tscn" id="1_28yct"]
 [ext_resource type="Script" path="res://scripts/camera_3d.gd" id="2_eprbc"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dqvwlixcitlld" path="res://models/cactus.tscn" id="6_s7726"]
 [ext_resource type="PackedScene" uid="uid://dglv637xy3jhr" path="res://scenes/environment.tscn" id="7_iw2sd"]
 [ext_resource type="PackedScene" uid="uid://bsxt03mrwp550" path="res://models/dune.tscn" id="8_7h3m8"]
+[ext_resource type="AudioStream" uid="uid://df5f317k3hjli" path="res://music/04_Mid Intensity Synthetic.mp3" id="9_20a0d"]
 
 [node name="main" type="Node3D"]
 
@@ -31,3 +32,7 @@ cactusPrefab = ExtResource("6_s7726")
 
 [node name="Dune" parent="." instance=ExtResource("8_7h3m8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 700, 0, 0)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_20a0d")
+autoplay = true

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://dkfxwmwj3g1mi"]
+[gd_scene load_steps=8 format=4 uid="uid://dkfxwmwj3g1mi"]
 
 [ext_resource type="Script" path="res://scripts/shield_generator.gd" id="1_xot65"]
+[ext_resource type="AudioStream" uid="uid://b05fk2johsx33" path="res://music/metal_crash.mp3" id="2_f1o60"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hawk"]
 resource_name = "ShieldGenBlue"
@@ -77,6 +78,9 @@ radius = 0.285388
 
 [node name="ShieldGenerator" type="Node3D"]
 script = ExtResource("1_xot65")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_f1o60")
 
 [node name="ShieldGenerator" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.4, 0, 0, 0, 0.3, 0, 0, 0, 0.4, 0, 0.252972, 0)

@@ -15,7 +15,8 @@ func _on_area_3d_hitbox_body_entered(body: Node3D) -> void:
 	if body.has_method("doExplode"):
 		body.doExplode()
 		GameManager.damageShieldGenerator(20)
-		
+		$AudioStreamPlayer3D.play()
+
 		var mesh: Mesh = $ShieldGenerator.mesh
 		if mesh:
 			var material: StandardMaterial3D = mesh.surface_get_material(1)
