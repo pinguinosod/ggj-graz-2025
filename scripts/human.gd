@@ -3,6 +3,7 @@ extends Node3D
 @export var enemyProjectilePrefab: PackedScene
 var targetEnemy:Node3D = null
 var isDying = false
+var hitpoints = 2
 
 func _process(delta: float) -> void:
 	if !isDying:
@@ -36,8 +37,13 @@ func spawnProjectile() -> void:
 		get_tree().root.get_node("main").add_child(enemyProjectile)
 
 func doDamage() -> void:
-	isDying = true
-	$AnimationPlayer.play("death")
+	hitpoints -= 1
+	if hitpoints <= 0:
+		isDying = true
+		$AudioStreamPlayer3D2.play()
+		$AnimationPlayer.play("death")
+	else:
+		$AudioStreamPlayer3D.play()
 
 func dissapear() -> void:
 	queue_free()

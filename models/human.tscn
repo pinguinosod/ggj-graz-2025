@@ -1,7 +1,9 @@
-[gd_scene load_steps=31 format=4 uid="uid://dtsttqykk35gt"]
+[gd_scene load_steps=33 format=4 uid="uid://dtsttqykk35gt"]
 
 [ext_resource type="Script" path="res://scripts/human.gd" id="1_cl0tt"]
 [ext_resource type="PackedScene" uid="uid://djlyhikp5ek71" path="res://scenes/enemyProjectile.tscn" id="2_4ktno"]
+[ext_resource type="AudioStream" uid="uid://d0me0676o3i57" path="res://music/ogh.mp3" id="3_4q1v7"]
+[ext_resource type="AudioStream" uid="uid://wyb1g7ps17mm" path="res://music/death.mp3" id="4_v7wuc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3tlj"]
 
@@ -544,6 +546,14 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3DHitbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.296475, 0)
 shape = SubResource("CapsuleShape3D_7qsrx")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_4q1v7")
+volume_db = 5.0
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_v7wuc")
+volume_db = 5.0
 
 [connection signal="body_entered" from="Area3DAttackRange" to="." method="_on_area_3d_attack_range_body_entered"]
 [connection signal="body_exited" from="Area3DAttackRange" to="." method="_on_area_3d_attack_range_body_exited"]
