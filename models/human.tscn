@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://dtsttqykk35gt"]
+[gd_scene load_steps=31 format=4 uid="uid://dtsttqykk35gt"]
 
 [ext_resource type="Script" path="res://scripts/human.gd" id="1_cl0tt"]
 [ext_resource type="PackedScene" uid="uid://djlyhikp5ek71" path="res://scenes/enemyProjectile.tscn" id="2_4ktno"]
@@ -278,6 +278,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 1)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_iq6rb"]
 resource_name = "attacking"
@@ -398,10 +422,53 @@ tracks/3/keys = {
 "values": [Vector3(-35.1049, 3.00675, -7.20537)]
 }
 
+[sub_resource type="Animation" id="Animation_kc22b"]
+resource_name = "death"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 12.5664, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.2, 1.2, 1.2), Vector3(0.1, 0.1, 0.1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"dissapear"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4w2vn"]
 _data = {
 "RESET": SubResource("Animation_ybanh"),
 "attacking": SubResource("Animation_iq6rb"),
+"death": SubResource("Animation_kc22b"),
 "idle": SubResource("Animation_tsjqv")
 }
 

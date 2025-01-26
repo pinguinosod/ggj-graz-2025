@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://dykvmhwm2b5ev"]
+[gd_scene load_steps=8 format=4 uid="uid://dykvmhwm2b5ev"]
 
 [ext_resource type="Script" path="res://scripts/turret_head_smart.gd" id="1_vofkb"]
+[ext_resource type="PackedScene" uid="uid://bdgglag373mt0" path="res://scenes/particles_smoke.tscn" id="2_lsdam"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qgaue"]
 resource_name = "TurretBase"
@@ -68,18 +69,21 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_82pte")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_h1251"]
-height = 3.27812
-radius = 7.17447
+height = 3.0
+radius = 14.0
 
 [node name="TurretHeadSmart" type="Node3D"]
 script = ExtResource("1_vofkb")
+shootParticlesPrefab = ExtResource("2_lsdam")
 
 [node name="TurretHead" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.0899183, 0)
+transform = Transform3D(-6.55671e-09, 0, 0.15, 0, 0.15, 0, -0.15, 0, -6.55671e-09, 0, 0.1, 0)
 mesh = SubResource("ArrayMesh_tvowd")
 skeleton = NodePath("")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="TimerAttack" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 0
@@ -88,5 +92,6 @@ collision_mask = 64
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("CylinderShape3D_h1251")
 
+[connection signal="timeout" from="TimerAttack" to="." method="_on_timer_attack_timeout"]
 [connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

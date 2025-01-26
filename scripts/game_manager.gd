@@ -6,7 +6,7 @@ var mainScene: PackedScene = preload("res://scenes/main.tscn")
 var endScene: PackedScene = preload("res://scenes/end_screen.tscn")
 var mainMenuScene: PackedScene = preload("res://scenes/main_menu.tscn")
 var gameStarted = false
-var vehicleUpgradeLevel: int = 1
+var vehicleUpgradeLevel: int = 2
 var resources: int = 100
 var currentVeinLevel: int = 1
 var veinResources: int = 50
@@ -39,7 +39,8 @@ func startMinning() -> void:
 
 func damageShieldGenerator(dmg: int) -> void:
 	shieldGeneratorHealth -= dmg
-	if shieldGeneratorHealth <=0 :
+	if shieldGeneratorHealth <= 0:
+		restartVariables()
 		loadEndScene()
 
 func loadEndScene() -> void:
@@ -52,3 +53,10 @@ func loadMainScene() -> void:
 func loadMainMenu() -> void:
 	gameStarted = false
 	get_tree().change_scene_to_packed(mainMenuScene)
+
+func restartVariables() -> void:
+	vehicleUpgradeLevel = 2
+	resources = 100
+	currentVeinLevel = 1
+	veinResources = 50
+	shieldGeneratorHealth = 100

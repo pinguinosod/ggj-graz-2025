@@ -2,13 +2,15 @@ extends Node3D
 
 @export var enemyProjectilePrefab: PackedScene
 var targetEnemy:Node3D = null
+var isDying = false
 
 func _process(delta: float) -> void:
-	if targetEnemy:
-		$AnimationPlayer.play("attacking")
-		rotate_to_face_target(delta)
-	else:
-		$AnimationPlayer.play("idle")
+	if !isDying:
+		if targetEnemy:
+			$AnimationPlayer.play("attacking")
+			rotate_to_face_target(delta)
+		else:
+			$AnimationPlayer.play("idle")
 
 func rotate_to_face_target(delta: float) -> void:
 	# Calculate the direction to the target
@@ -32,3 +34,10 @@ func spawnProjectile() -> void:
 		enemyProjectile.position = global_position
 		enemyProjectile.position.y = 0.7
 		get_tree().root.get_node("main").add_child(enemyProjectile)
+
+func doDamage() -> void:
+	isDying = true
+	$AnimationPlayer.play("death")
+
+func dissapear() -> void:
+	queue_free()
