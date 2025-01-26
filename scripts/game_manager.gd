@@ -36,7 +36,7 @@ func spendResources(howMuch: int) -> bool:
 
 func startMinning() -> void:
 	currentVeinLevel += 1
-	veinResources = currentVeinLevel * 20 # 200
+	veinResources = currentVeinLevel * 50 # 200
 	minningStarted.emit()
 
 func damageShieldGenerator(dmg: int) -> void:
@@ -62,7 +62,7 @@ func loadMainMenu() -> void:
 
 func restartVariables() -> void:
 	vehicleUpgradeLevel = 2
-	resources = 100
+	resources = 150
 	currentVeinLevel = 1
 	veinResources = 50
 	shieldGeneratorHealth = 100

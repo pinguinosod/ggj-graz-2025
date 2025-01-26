@@ -6,7 +6,7 @@ extends Node3D
 
 var isMoving = false
 var movementSpeed = 3
-var travelTime = 10
+var travelTime = 20
 var timeTraveled = 0
 
 func _ready() -> void:
@@ -32,18 +32,18 @@ func _handleMovementStarted():
 	isMoving = true
 
 func spawnRocks():
-	for i in 24:
+	for i in 30:
 		spawnInstanceOf(rockPrefab)
 
 func spawnCacti():
-	for i in 24:
+	for i in 30:
 		spawnInstanceOf(cactusPrefab)
 
 func spawnHumans():
-	for i in 3 * GameManager.currentVeinLevel:
-		spawnInstanceOf(humanPrefab, 8 + (2 * GameManager.vehicleUpgradeLevel), 24+ (2 * GameManager.vehicleUpgradeLevel), 2 + (2 * GameManager.vehicleUpgradeLevel), 6 + (2 * GameManager.vehicleUpgradeLevel))
+	for i in 4 * GameManager.currentVeinLevel:
+		spawnInstanceOf(humanPrefab, 8 + (2 * GameManager.vehicleUpgradeLevel), 80+ (2 * GameManager.vehicleUpgradeLevel), 2 + (2 * GameManager.vehicleUpgradeLevel), 6 + (2 * GameManager.vehicleUpgradeLevel))
 
-func spawnInstanceOf(prefab: PackedScene, minX: float = 15, maxX :float = 80, minZ: float = 8, maxZ :float = 64):
+func spawnInstanceOf(prefab: PackedScene, minX: float = 15, maxX :float = 120, minZ: float = 8, maxZ :float = 64):
 	var instance: Node3D = prefab.instantiate()
 	var positionZ = randf_range(minZ, maxZ)
 	var positionX = randf_range(minX, maxX)
