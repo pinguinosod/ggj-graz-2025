@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cf81a8250qtyl"]
+[gd_scene load_steps=11 format=3 uid="uid://cf81a8250qtyl"]
 
 [ext_resource type="Script" path="res://scripts/base_vehicle.gd" id="1_iqovt"]
 [ext_resource type="MeshLibrary" uid="uid://88lwxfrpuv3x" path="res://resources/MeshLibrary.tres" id="2_7va1y"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dkfxwmwj3g1mi" path="res://models/shieldGenerator.tscn" id="4_xrtgn"]
 [ext_resource type="PackedScene" uid="uid://cgea1wn6382jc" path="res://scenes/bubbleShield.tscn" id="5_0m7hs"]
 [ext_resource type="PackedScene" uid="uid://fo6vdg5e37a" path="res://models/treads.tscn" id="5_uno4h"]
+[ext_resource type="PackedScene" uid="uid://qaurrepp60w" path="res://models/solar_panel.tscn" id="8_0j0bu"]
+[ext_resource type="PackedScene" uid="uid://cobwqkir50x3k" path="res://models/miner.tscn" id="9_axjcx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_thmtp"]
 size = Vector3(6, 1, 6)
@@ -27,7 +29,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 mesh_library = ExtResource("2_7va1y")
 cell_size = Vector3(0.5, 0.3, 0.5)
 data = {
-"cells": PackedInt32Array(65535, 65535, 3, 65535, 0, 3, 0, 0, 3, 0, 65535, 3, 4, 1, 3, 65531, 0, 3)
+"cells": PackedInt32Array(65535, 65535, 3, 65535, 0, 3, 0, 0, 3, 0, 65535, 3, 4, 1, 3, 65531, 0, 3, 65532, 3, 3, 65533, 3, 3, 65533, 2, 3, 65532, 2, 3, 65532, 65533, 3, 65533, 65533, 3, 65533, 65532, 3, 65532, 65532, 3, 65533, 0, 3, 65534, 0, 3, 65534, 65535, 3, 65533, 65535, 3)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
@@ -61,5 +63,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.75, 2)
 transform = Transform3D(0.93937, 0.342906, 0, -0.342906, 0.93937, 0, 0, 0, 1, 3.21766, 0.117504, -0.0101204)
 material_override = ExtResource("4_cok2d")
 size = Vector3(0.714, 0.549, 6)
+
+[node name="SolarPanel" parent="." instance=ExtResource("8_0j0bu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.5, -1.5)
+
+[node name="SolarPanel2" parent="." instance=ExtResource("8_0j0bu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.5, 1.5)
+
+[node name="Miner" parent="." instance=ExtResource("9_axjcx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01095, 0.5, 0)
 
 [connection signal="timeout" from="MinningTimer" to="." method="_on_minning_timer_timeout"]
