@@ -3,17 +3,13 @@
 [ext_resource type="Script" path="res://scripts/base_vehicle.gd" id="1_iqovt"]
 [ext_resource type="MeshLibrary" uid="uid://88lwxfrpuv3x" path="res://resources/MeshLibrary.tres" id="2_7va1y"]
 [ext_resource type="PackedScene" uid="uid://dykvmhwm2b5ev" path="res://scenes/turret_head_smart.tscn" id="2_wkv4s"]
+[ext_resource type="Material" uid="uid://ctquqtsemp41y" path="res://resources/mat_base_vehicle.tres" id="4_cok2d"]
 [ext_resource type="PackedScene" uid="uid://dkfxwmwj3g1mi" path="res://models/shieldGenerator.tscn" id="4_xrtgn"]
 [ext_resource type="PackedScene" uid="uid://cgea1wn6382jc" path="res://scenes/bubbleShield.tscn" id="5_0m7hs"]
 [ext_resource type="PackedScene" uid="uid://fo6vdg5e37a" path="res://models/treads.tscn" id="5_uno4h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_thmtp"]
 size = Vector3(6, 1, 6)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hrqju"]
-albedo_color = Color(0.7462, 0.82, 0.78679, 1)
-metallic = 0.91
-roughness = 0.25
 
 [node name="BaseVehicle" type="Node3D"]
 script = ExtResource("1_iqovt")
@@ -36,7 +32,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="CSGBox3DVehiclePlatform" type="CSGBox3D" parent="."]
-material_override = SubResource("StandardMaterial3D_hrqju")
+material_override = ExtResource("4_cok2d")
 size = Vector3(4, 1, 4)
 
 [node name="ShieldGenerator" parent="." instance=ExtResource("4_xrtgn")]
@@ -60,5 +56,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.75, -2)
 
 [node name="Treads5" parent="." instance=ExtResource("5_uno4h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.75, 2)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.93937, 0.342906, 0, -0.342906, 0.93937, 0, 0, 0, 1, 3.21766, 0.117504, -0.0101204)
+material_override = ExtResource("4_cok2d")
+size = Vector3(0.714, 0.549, 6)
 
 [connection signal="timeout" from="MinningTimer" to="." method="_on_minning_timer_timeout"]
